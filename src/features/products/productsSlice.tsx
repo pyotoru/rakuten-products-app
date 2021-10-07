@@ -1,5 +1,4 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import Main from "/Users/pyotoru/Desktop/Work/Trial/rakuten-products-app-master/src/components/Main";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",

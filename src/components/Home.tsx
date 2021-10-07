@@ -1,5 +1,5 @@
-import styled, {createGlobalStyle} from "styled-components";
-import {Link} from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
+import { Link } from "react-router-dom";
 // import NameForm from "./Submit";
 
 function Home() {
@@ -27,18 +27,23 @@ const Button = styled.button`
   width: 30%;
   margin: auto;
   background-color: #b4345c;
-  color: #f5fffa;
+  color: #fffafa;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  color: #f5fffa;
+  color: #fffafa;
   text-align: center;
 `;
 
 const GlobalStyle = createGlobalStyle`
 body {
-  background-color: #F5FFFA;
+  background-color: #FFFAFA;
    text-decoration: none;
 }
 `;

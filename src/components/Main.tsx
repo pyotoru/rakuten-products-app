@@ -1,39 +1,27 @@
-import {useEffect} from "react";
-import styled, {createGlobalStyle} from "styled-components";
-import {Link} from "react-router-dom";
-import {useSelector, useDispatch} from "react-redux";
-import {RootState} from "../features/products/productsSlice";
-import Search from "./SubmitFunction";
-
-import {getProducts} from "../features/products/productsSlice";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../features/products/productsSlice";
+import Search from "./SearchProduct";
 
 function Main() {
-  const dispatch = useDispatch();
-  const {products} = useSelector((state: RootState) => state.products);
+  const { products } = useSelector((state: RootState) => state.products);
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
-
-  const removeProducts = () => {
-    var itemToRemove = document.getElementById("products");
-    itemToRemove?.remove();
-  };
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, []);
 
   return (
     <div>
-      <GlobalStyle />
       <Container>
         <NavLink to="/">
           <Button>Homeへ </Button>
         </NavLink>
         <Search />
-        <Button>検索</Button>
-        <Button onClick={removeProducts}> クリア</Button>
         <ProductsDisplay>商品一覧</ProductsDisplay>
         <Products>
           <ProductInfo>
-            商品名
+            <ProductType>商品名</ProductType>
             <Description>
               {products.Items &&
                 products.Items.map((product: any, i: any) => (
@@ -42,7 +30,7 @@ function Main() {
             </Description>
           </ProductInfo>
           <ProductInfo>
-            キャッチコピー
+            <ProductType>キャッチコピー</ProductType>
             <Description>
               {products.Items &&
                 products.Items.map((product: any, i: any) => {
@@ -55,7 +43,7 @@ function Main() {
             </Description>
           </ProductInfo>
           <ProductInfo>
-            商品価格
+            <ProductType>商品価格</ProductType>
             <Description>
               {products.Items &&
                 products.Items.map((product: any, i: any) => (
@@ -64,7 +52,7 @@ function Main() {
             </Description>
           </ProductInfo>
           <ProductInfo>
-            商品説明文
+            <ProductType>商品説明文</ProductType>
             <Description>
               {products.Items &&
                 products.Items.map((product: any, i: any) => (
@@ -73,7 +61,7 @@ function Main() {
             </Description>
           </ProductInfo>
           <ProductInfo>
-            商品URL
+            <ProductType>商品URL</ProductType>
             <Description>
               {products.Items &&
                 products.Items.map((product: any, i: any) => (
@@ -89,9 +77,22 @@ function Main() {
 
 export default Main;
 
+const ProductType = styled.h3`
+  text-decoration: underline;
+  color: #fffafa;
+  background-color: #b4345c;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-top: 70px;
+  font-size: 1rem;
+  margin: 0;
+  height: 100px;
+`;
+
 const Product = styled.h4`
+  overflow: scroll;
   height: 200px;
   color: #b4345c;
+  font-size: 0.8rem;
 `;
 
 const Description = styled.header`
@@ -101,24 +102,19 @@ const Description = styled.header`
 
 const ProductsDisplay = styled.h2`
   text-align: center;
-  color: #b4345c;
+  padding: 10px;
+  color: #fffafa;
+  background-color: #b4345c;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
 const ProductInfo = styled.h3`
-  font-size: 1rem;
   color: #b4345c;
 `;
 
 const Products = styled.div`
   display: grid;
-  grid-template-columns: 2fr 3fr 2fr 4fr 1fr;
-  column-gap: 15px;
-  text-align: center;
-`;
-
-const Text = styled.input`
-  width: 30%;
-  margin: auto;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
   text-align: center;
 `;
 
@@ -128,17 +124,16 @@ const Button = styled.button`
   width: 30%;
   margin: auto;
   background-color: #b4345c;
-  color: #f5fffa;
-`;
-
-const GlobalStyle = createGlobalStyle`
-body {
-  background-color: #F5FFFA;
-}
+  color: #fffafa;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 const Container = styled.main`
-  margin: 5rem auto;
+  margin: auto;
   padding: 2.5rem 3rem;
   display: grid;
   gap: 1rem;
@@ -148,4 +143,7 @@ const NavLink = styled(Link)`
   text-decoration: none;
   color: #f5fffa;
   text-align: center;
+  &:hover {
+    opacity: 0.75;
+  }
 `;
