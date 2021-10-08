@@ -15,7 +15,7 @@ function App() {
 
 const GlobalStyle = createGlobalStyle`
 body {
-  background-color: #FFFAFA;
+  background-color: #fffafa;
 }
 `;
 
