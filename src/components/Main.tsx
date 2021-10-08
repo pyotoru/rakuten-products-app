@@ -1,15 +1,11 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../features/products/productsSlice";
+import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "../features/products/productsSlice";
 import Search from "./SearchProduct";
 
 function Main() {
   const { products } = useSelector((state: RootState) => state.products);
-
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, []);
 
   return (
     <div>
@@ -24,7 +20,7 @@ function Main() {
             <ProductType>商品名</ProductType>
             <Description>
               {products.Items &&
-                products.Items.map((product: any, i: any) => (
+                products.Items.map((product: any, i: number) => (
                   <Product key={i}>{product.Item.itemName}</Product>
                 ))}
             </Description>
@@ -33,7 +29,7 @@ function Main() {
             <ProductType>キャッチコピー</ProductType>
             <Description>
               {products.Items &&
-                products.Items.map((product: any, i: any) => {
+                products.Items.map((product: any, i: number) => {
                   if (product.Item.catchcopy.length !== 0) {
                     return <Product key={i}>{product.Item.catchcopy}</Product>;
                   } else {
@@ -46,7 +42,7 @@ function Main() {
             <ProductType>商品価格</ProductType>
             <Description>
               {products.Items &&
-                products.Items.map((product: any, i: any) => (
+                products.Items.map((product: any, i: number) => (
                   <Product key={i}>{product.Item.itemPrice}</Product>
                 ))}
             </Description>
@@ -55,7 +51,7 @@ function Main() {
             <ProductType>商品説明文</ProductType>
             <Description>
               {products.Items &&
-                products.Items.map((product: any, i: any) => (
+                products.Items.map((product: any, i: number) => (
                   <Product key={i}>{product.Item.itemCaption}</Product>
                 ))}
             </Description>
@@ -64,7 +60,7 @@ function Main() {
             <ProductType>商品URL</ProductType>
             <Description>
               {products.Items &&
-                products.Items.map((product: any, i: any) => (
+                products.Items.map((product: any, i: number) => (
                   <Product key={i}>{product.Item.itemUrl}</Product>
                 ))}
             </Description>

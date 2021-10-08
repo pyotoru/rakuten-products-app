@@ -1,11 +1,14 @@
-import { useState } from "react";
+import {useCallback, useState} from "react";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import {AppDispatch} from "../app/store";
+import {productsSlice} from "../features/products/productsSlice";
 
 function Search(props: any) {
   const [productQuery, setProductQuery] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>()
 
   const handleSubmit = (e: any) => {
     const uri =
@@ -21,17 +24,21 @@ function Search(props: any) {
     dispatch(gotProducts());
   };
 
-  const handleClear = (e: any) => {
-    const uri = "";
-    e.preventDefault();
-    const clearProducts = createAsyncThunk(
-      "products/getProducts",
-      async (dispatch, getState) => {
-        return await fetch(uri).then((res) => res.status);
-      }
-    );
-    dispatch(clearProducts());
-  };
+  // const handleClear = (e: any) => {
+  //   const uri = "";
+  //   e.preventDefault();
+  //   const clearProducts = createAsyncThunk(
+  //     "products/getProducts",
+  //     async (dispatch, getState) => {
+  //       return await fetch(uri).then((res) => res.status);
+  //     }
+  //   );
+  //   dispatch(clearProducts());
+  // };
+
+  const onClear = useCallback(() => {
+    dispatch(productsSlice.actions.clearProducts());
+  }, []);
 
   return (
     <>
@@ -55,7 +62,7 @@ function Search(props: any) {
             }}
           />
         </Form>
-        <Clear type="reset" value="検索結果クリア" onClick={handleClear} />
+        <Clear type="reset" value="検索結果クリア" onClick={onClear} />
       </Container>
     </>
   );
