@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk, PayloadAction} from "@reduxjs/toolkit";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
@@ -15,7 +15,11 @@ export const productsSlice = createSlice({
     products: [],
     status: "",
   },
-  reducers: {},
+  reducers: {
+    clearProducts: (state) => {
+      return { ...state, products: [] }
+    }
+  },
   extraReducers: {
     [getProducts.pending.toString()]: (state, action) => {
       state.status = "loading";

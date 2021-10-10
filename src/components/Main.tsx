@@ -7,16 +7,10 @@ import Search from "./SearchProduct";
 function Main() {
   const { products } = useSelector((state: RootState) => state.products);
 
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, []);
-
   return (
     <Container>
       <NavLink to="/">
-        <Home>
-          <Button>Homeへ </Button>
-        </Home>
+        <Button>Homeへ </Button>
       </NavLink>
       <Search />
       <ProductsDisplay>商品一覧</ProductsDisplay>
