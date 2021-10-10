@@ -95,7 +95,7 @@ const ProductType = styled.h3`
 `;
 
 const Product = styled.h4`
-  overflow: scroll;
+  overflow: auto;
   scrollbar-color: yellow red;
   height: 200px;
   color: #b4345c;
