@@ -88,6 +88,9 @@ const Clear = styled.input`
   &:hover {
     opacity: 0.75;
   }
+  @media (max-width: 768px) {
+    width: 40%;
+  }
 `;
 
 const Form = styled.form`
@@ -97,6 +100,9 @@ const Form = styled.form`
 const Input = styled.input`
   width: 20rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  @media (max-width: 768px) {
+    width: 10rem;
+  }
 `;
 
 const Button = styled.input`
