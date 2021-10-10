@@ -138,7 +138,7 @@ const Home = styled.div`
 const Button = styled.button`
   text-align: center;
   padding: 5px;
-  width: 30%;
+  width: 20rem;
   margin: auto;
   background-color: #b4345c;
   color: #fffafa;
@@ -166,6 +166,7 @@ const Container = styled.main`
 
 const NavLink = styled(Link)`
   text-decoration: none;
+
   color: #fffafa;
   &:hover {
     opacity: 0.75;

@@ -16,9 +16,7 @@ function App() {
 const GlobalStyle = createGlobalStyle`
 body {
   min-height: 100vh;
-  // background-color: #FFFAFA;
-    background: linear-gradient(to right top, #FFA07A, #FBCEB1);
-
+  background: linear-gradient(to right top, #ffefba, #ffffff);
 }
 `;
 

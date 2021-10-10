@@ -76,6 +76,8 @@ const Container = styled.main`
 `;
 
 const Clear = styled.input`
+  border-radius: 30%;
+
   text-align: center;
   padding: 5px;
   width: 30%;
@@ -106,6 +108,8 @@ const Input = styled.input`
 `;
 
 const Button = styled.input`
+  border-radius: 30%;
+
   background-color: #b4345c;
   color: #fffafa;
   width: 4rem;
