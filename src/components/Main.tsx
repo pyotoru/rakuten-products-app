@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
-import {RootState} from "../features/products/productsSlice";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../features/products/productsSlice";
 import Search from "./SearchProduct";
 
 function Main() {
@@ -10,65 +10,7 @@ function Main() {
   return (
     <Container>
       <NavLink to="/">
-        <Home>
-          <Button>Homeへ </Button>
-        </NavLink>
-        <Search />
-        <ProductsDisplay>商品一覧</ProductsDisplay>
-        <Products>
-          <ProductInfo>
-            <ProductType>商品名</ProductType>
-            <Description>
-              {products.Items &&
-                products.Items.map((product: any, i: number) => (
-                  <Product key={i}>{product.Item.itemName}</Product>
-                ))}
-            </Description>
-          </ProductInfo>
-          <ProductInfo>
-            <ProductType>キャッチコピー</ProductType>
-            <Description>
-              {products.Items &&
-                products.Items.map((product: any, i: number) => {
-                  if (product.Item.catchcopy.length !== 0) {
-                    return <Product key={i}>{product.Item.catchcopy}</Product>;
-                  } else {
-                    return <Product key={i}>-</Product>;
-                  }
-                })}
-            </Description>
-          </ProductInfo>
-          <ProductInfo>
-            <ProductType>商品価格</ProductType>
-            <Description>
-              {products.Items &&
-                products.Items.map((product: any, i: number) => (
-                  <Product key={i}>{product.Item.itemPrice}</Product>
-                ))}
-            </Description>
-          </ProductInfo>
-          <ProductInfo>
-            <ProductType>商品説明文</ProductType>
-            <Description>
-              {products.Items &&
-                products.Items.map((product: any, i: number) => (
-                  <Product key={i}>{product.Item.itemCaption}</Product>
-                ))}
-            </Description>
-          </ProductInfo>
-          <ProductInfo>
-            <ProductType>商品URL</ProductType>
-            <Description>
-              {products.Items &&
-                products.Items.map((product: any, i: number) => (
-                  <Product key={i}>{product.Item.itemUrl}</Product>
-                ))}
-            </Description>
-          </ProductInfo>
-        </Products>
-      </Container>
-    </div>
-        </Home>
+        <Button>Homeへ </Button>
       </NavLink>
       <Search />
       <ProductsDisplay>商品一覧</ProductsDisplay>
@@ -124,7 +66,6 @@ function Main() {
         </ProductInfo>
       </Products>
     </Container>
-
   );
 }
 
